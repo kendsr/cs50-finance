@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stock Quote
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <h1 style="text-align: center">Show Quote</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <!--Use custom filter usd to format price-->
+            <p>Name:{{data.name}}</br> Symbol:{{data.symbol}}</br> Price: {{data.price|usd}}</p>
+            <a class="btn btn-link" href="/quote">Go Back</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+  
+{% block title %}
+   Stock System
+{% endblock %}
+
+{% block main %}
+      <h1>Stock System</h1>
+      <div class="container">
+        <h2>Asset Portfolio</h2>          
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!--insert loop for stock symbols-->
+                {% for row in data %}
+                    <tr>
+                    <td>{{ row.Symbol }}</td>
+                    <td>{{ row.Name }}</td>
+                    <td>{{ row.Shares }}</td>
+                    <td>{{ row.Price }}</td>
+                    <td>{{ row.Total }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Cash</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ cashBal }}</td>
+                </tr>
+                <tr>
+                    <td>Portfolio Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

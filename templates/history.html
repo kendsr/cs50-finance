@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+  
+{% block title %}
+   History
+{% endblock %}
+
+{% block main %}
+      <h1>Stock System</h1>
+      <div class="container">
+        <h2>Transaction History</h2>          
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Transaction</th>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!--insert loop for stock symbols-->
+                {% for row in data %}
+                    <tr>
+                    <td>{{ row['Transaction'] }}</td>
+                    <td>{{ row['Symbol'] }}</td>
+                    <td>{{ row['Price'] }}</td>
+                    <td>{{ row['Shares'] }}</td>
+                    <td>{{ row['Date'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
