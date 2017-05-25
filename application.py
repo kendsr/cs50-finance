@@ -31,8 +31,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # configure CS50 Library to use SQLite database
-# path is to the database in c:\users\kendsr\desktop\working\cs50\finance\finance.db
-db = SQL("sqlite:///finance//finance.db")
+# path is to the database in c:\users\kendsr\desktop\working\cs50\cs50-finance\finance.db
+db = SQL("sqlite:///cs50-finance//finance.db")
 
 @app.route("/")
 @login_required
@@ -113,8 +113,7 @@ def buy():
             flash("Stock Symbol not found")
             return render_template('apology.html')
         flash(str(numShares) + " shares of " + stock['symbol'] + " for a total cost of " + usd(purchase) \
-            + " at " + usd(stock['price']) + " per share.")
-        flash("Your current cash balance is " + usd(cashBal))
+            + " at " + usd(stock['price']) + " per share. Your current cash balance is " + usd(cashBal))
         return redirect(url_for("index"))
 
 @app.route("/history")
@@ -248,7 +247,7 @@ def sell():
     if request.method == "POST":
         if not request.form['symbol']:
             flash("Stock Symbol must be provided")
-            return redirecturl_for("index"))
+            return redirect(url_for("index"))
         # Get current cash balance for user
         cash = db.execute('select cash from users where id=:id', id=session['user_id'])
         cashBal = cash[0]['cash']
