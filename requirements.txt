@@ -13,5 +13,5 @@ passlib==1.7.1
 pycparser==2.17
 pyparsing==2.2.0
 six==1.10.0
-SQLAlchemy==1.1.9
-Werkzeug==2.2.3
+SQLAlchemy==1.2.19
+Werkzeug==3.0.3
